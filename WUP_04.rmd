@@ -64,6 +64,23 @@ The Graduate students outranked the other classes of students through Q1, median
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
 
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=mydata)
+summary.aov(model1)
+```
+P-value is less than .05, move to TukeyHSD test
+
+```{r}
+#we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
+par(mar = c(3, 15.7, 2, 2))
+plot(TukeyHSD(model1),las=2)
+```
+
+According to the TukeyHSD plot, the only two results that do not include 0 in their confidence interval are HighSchool-Graduate and LTHighSchool-Graduate.  Because the contrast between the two degree types in each scenario is significant (Graduate is the highest degree class, compared to the High School degrees), it can be validly stated that there is a bonafide difference in WORDSUM scores among different classes of students.
+
+
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+When inspecting the boxplot, numerical table, and TukeyHSD test, a clear, direct relationship between WORDSUM score and DEGREE appears; individuals who have higher degrees tend to do better on the WORDSUM game, and those with more rudimentary degrees seemed to perform lower.  Because we have a low p-value, the data computed above is thus significant, and so is our conclusion.  

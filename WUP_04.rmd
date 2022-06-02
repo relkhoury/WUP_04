@@ -52,6 +52,13 @@ The GG Boxplot seems to indicate that the graduate level students seemed to perf
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+favstats(WORDSUM~DEGREE,data=mydata)
+```
+The Graduate students outranked the other classes of students through Q1, median, and mean, suggesting that those with more education tended to do more well on the WORDSUM game.  In contrast, the LT High School and High School students seemed to yield the lowest mins, Q1, medians, Q3, and means, implying that students earlier on in their education might not do as well on the WORDSUM game.
+
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
